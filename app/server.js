@@ -15,7 +15,11 @@ app.use(require('./routes'));
 app.listen(PORT, function () {
     console.log(`Example app listening on http://localhost:${PORT}!`);
 
-    sequelize.authenticate().then(() => {
+    sequelize
+    .authenticate()
+    .then(() => {
         console.log('Nos hemos conectado a la base de datos.');
-    })
+    }).catch(err => {
+        console.error('No se puede conectar a la base de datos: ', err);
+    });
 });

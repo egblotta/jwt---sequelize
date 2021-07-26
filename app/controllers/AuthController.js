@@ -5,14 +5,14 @@ const authConfig = require('../../config/auth');
 
 const authController = {
     //login
-    signIn: async (req, res) => {
+    signIn(req, res){
 
         let result, token, passwordMatches;
 
             let { email, password } = req.body;
 
             //Buscamos el usuario
-            const user = await User.findOne({ 
+            User.findOne({ 
                 where: { 
                     email: email 
                 } 
@@ -59,13 +59,13 @@ const authController = {
             password: password
         }).then(user => {
 
-            let token = jwt.sign({user: user}, authConfig.secret, {
-                expiresIn: authConfig.expires
+            let token = jwt.sign({user: user}, authConfig.secret, { 
+                expiresIn: authConfig.expires 
             });
 
-            res.json({
-                user: user,
-                token: token
+            res.json({ 
+                user: user, 
+                token: token 
             });
 
         }).catch(err =>{
