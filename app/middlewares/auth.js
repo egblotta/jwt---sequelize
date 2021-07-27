@@ -7,7 +7,9 @@ module.exports = (req, res, next) => {
 
     //Comprobar que existe el token
     if(!req.headers.authorization){
+        
         res.status(401).json({msg: 'Acceso no autorizado'});
+
     } else{
 
         //Comprobar la validez del token

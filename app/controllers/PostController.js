@@ -21,7 +21,13 @@ module.exports = {
 
     //Show
     async show(req, res){
-        res.json(req.post);
+        let post = await Post.findByPk(req.params.id);
+
+        if(!post){
+            res.status(404).json({msg: 'El post no ha sido encontrado'});
+        }else{
+            res.json(req.post);
+        }        
     },
 
     //Update
