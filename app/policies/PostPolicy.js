@@ -3,8 +3,8 @@ const { User } = require('../models/index');
 // Las politicas son middlewares
 module.exports = {
 
+    //Politica para mostrar
     show(req, res, next) {
-
         if(req.user.id === req.post.userId || User.isAdmin(req.user.roles)){
             next();
         }else{
@@ -12,8 +12,8 @@ module.exports = {
         }
     },
 
+    //Politica para actualizacion
     update(req, res, next) {
-
         if(req.user.id === req.post.userId || User.isAdmin(req.user.roles)){
             next();
         }else{
@@ -21,8 +21,8 @@ module.exports = {
         }
     },
 
+    //Politica para delete
     delete(req, res, next) {
-
         if(req.user.id === req.post.userId || User.isAdmin(req.user.roles)){
             next();
         }else{

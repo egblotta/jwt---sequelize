@@ -18,7 +18,7 @@ router.get('/', (req, res) => res.json({ hello: "World" }));
 router.post('/api/signin', AuthController.signIn);
 router.post('/api/signup', AuthController.signUp);
 
-//Ruta para posts
+//Rutas para posts
 router.get('/api/posts', auth, PostController.index);
 router.get('/api/posts/:id', auth, PostController.find, PostPolicy.show, PostController.show);
 router.patch('/api/posts/:id', auth, PostController.find, PostPolicy.update, PostController.update);

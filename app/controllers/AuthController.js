@@ -7,8 +7,6 @@ const authController = {
     //login
     signIn(req, res){
 
-        let result, token, passwordMatches;
-
             let { email, password } = req.body;
 
             //Buscamos el usuario
@@ -29,7 +27,8 @@ const authController = {
 
                         res.json({
                             user: user,
-                            token: token
+                            token: token,
+                            msg: 'Bienvenido '+user.name
                         })
 
                     }else{

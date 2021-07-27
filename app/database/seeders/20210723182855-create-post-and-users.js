@@ -8,10 +8,11 @@ module.exports = {
 
   up: async (queryInterface, Sequelize) => {
     return Promise.all([
+
       User.create({
         name: 'Emiliano',
         email: 'emi@mail.com',
-        password: bcrypt.hashSync('123456',Number.parseInt(authConfig.rounds)),
+        password: bcrypt.hashSync('123456', Number.parseInt(authConfig.rounds)),
         posts:[
           {
             title: 'Title 1',
@@ -25,10 +26,11 @@ module.exports = {
       },{
         include: 'posts'
       }),
+
       User.create({
         name: 'Juan',
         email: 'juan@mail.com',
-        password: bcrypt.hashSync('123456',Number.parseInt(authConfig.rounds)),
+        password: bcrypt.hashSync('123456', Number.parseInt(authConfig.rounds)),
         posts:[
           {
             title: 'Title 3',
