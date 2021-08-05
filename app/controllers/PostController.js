@@ -2,6 +2,7 @@ const { Post } = require('../models/index');
 
 module.exports = {
 
+    //Middleware que devuelve el estado del post
     async find(req, res, next){
         let post = await Post.findByPk(req.params.id);
 
@@ -37,7 +38,7 @@ module.exports = {
             post = await Post.create({
                 title: req.body.title,
                 body: req.body.body,
-                userId: req.body.userId,
+                userId: req.body.userId
             });
             result = {
                 success: true,

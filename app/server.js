@@ -2,14 +2,14 @@ const express = require('express');
 const app = express();
 const { sequelize } = require('./models/index');    //importamos la conexion
 
-// Settings
+//Settings
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
+//Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Rutas
+//Carga las rutas desde routes.js
 app.use(require('./routes'));
 
 app.listen(PORT, function () {

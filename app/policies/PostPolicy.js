@@ -12,6 +12,14 @@ module.exports = {
         }
     },
 
+    create(req, res, next) {
+        if(User.isAdmin(req.user.roles)){
+            next();
+        }else{
+            res.status(401).json({ msg: 'No estás autorizado para crear una publicacion' });
+        }
+    },
+
     //Politica para actualizacion
     update(req, res, next) {
         if(req.user.id === req.post.userId || User.isAdmin(req.user.roles)){

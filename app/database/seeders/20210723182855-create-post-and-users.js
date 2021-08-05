@@ -10,17 +10,17 @@ module.exports = {
     return Promise.all([
 
       User.create({
-        name: 'Ariel',
-        email: 'ariel@mail.com',
+        name: 'Emiliano',
+        email: 'emiliano@mail.com',
         password: bcrypt.hashSync('123456', Number.parseInt(authConfig.rounds)),
         posts:[
           {
-            title: 'Title 1',
-            body: 'Body 1'
+            title: 'Spiderman',
+            body: 'Marvel'
           },
           {
-            title: 'Title 2',
-            body: 'Body 2'
+            title: 'Avengers',
+            body: 'Marvel'
           },
         ]
       },{
@@ -33,12 +33,12 @@ module.exports = {
         password: bcrypt.hashSync('123456', Number.parseInt(authConfig.rounds)),
         posts:[
           {
-            title: 'Title 3',
-            body: 'Body 3'
+            title: 'Batman',
+            body: 'DC'
           },
           {
-            title: 'Title 4',
-            body: 'Body 4'
+            title: 'Superman',
+            body: 'DC'
           },
         ]
       },{
