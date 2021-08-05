@@ -9,8 +9,8 @@ module.exports = {
       queryInterface.bulkInsert(
         'roles',
         [
-          { role: 'admin', createdAt: new Date(), updatedAt: new Date() },
-          { role: 'user', createdAt: new Date(), updatedAt: new Date() }
+          { role: 'admin', createdAt: new Date(), updatedAt: new Date() }, //role id 1
+          { role: 'user', createdAt: new Date(), updatedAt: new Date() }   //role id 2
         ], 
         {}
       ),

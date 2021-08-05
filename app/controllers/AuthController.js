@@ -19,28 +19,15 @@ const authController = {
                     res.status(404).json({msg: "Usuario no encontrado"});
                 }else{
                     if(bcrypt.compareSync(password, user.password)){
-
                         //creamos el token
-                        let token = jwt.sign({user: user}, authConfig.secret, {
-                            expiresIn: authConfig.expires
-                        });
-
-                        res.json({
-                            user: user,
-                            token: token,
-                            msg: 'Bienvenido '+user.name
-                        })
-
+                        let token = jwt.sign({user: user}, authConfig.secret, { expiresIn: authConfig.expires });
+                        res.json({ user: user, token: token, msg: 'Bienvenido '+user.name })
                     }else{
                         //Acceso no autorizado
-                        result = { 
-                            success: false, 
-                            msg: "Contraseña incorrecta" 
-                        };
+                        result = { success: false, msg: "Contraseña incorrecta" };
                         res.json(401).json(result);
                     }
-                }
-                
+                }                
             }).catch(err => {
                 res.json(500).json(err);
             });    
@@ -57,21 +44,10 @@ const authController = {
             email: req.body.email,
             password: password
         }).then(user => {
-
-            let token = jwt.sign({user: user}, authConfig.secret, { 
-                expiresIn: authConfig.expires 
-            });
-
-            res.json({ 
-                user: user, 
-                token: token 
-            });
-
+            let token = jwt.sign({user: user}, authConfig.secret, { expiresIn: authConfig.expires });
+            res.json({ user: user, token: token });
         }).catch(err =>{
-            result = { 
-                success: false, 
-                msg: err 
-            };
+            result = { success: false, msg: err };
             res.status(500).json(result);
         });        
     }

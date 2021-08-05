@@ -30,6 +30,27 @@ module.exports = {
         }        
     },
 
+    //Create
+    create: async (req, res) => {
+        let result, post;
+        try {
+            post = await Post.create({
+                title: req.body.title,
+                body: req.body.body,
+                userId: req.body.userId,
+            });
+            result = {
+                success: true,
+                msg: 'Publicación creada',
+                post: post,
+            };
+            return res.status(201).json(result);
+        } catch (err) {
+            result = { success: false, msg: err };
+            return res.status(500).json(result);
+        }
+    },
+
     //Update
     async update(req, res){
         req.post.title = req.body.title;
