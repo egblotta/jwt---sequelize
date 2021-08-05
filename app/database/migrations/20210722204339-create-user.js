@@ -1,6 +1,6 @@
 'use strict';
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {    //queryinterface se usa para modificar la bd
     await queryInterface.createTable('users', {
       id: {
         allowNull: false,
